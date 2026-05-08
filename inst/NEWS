@@ -1,7 +1,7 @@
 CHANGES 
 -----------------------
 * 2026-05-08
-  RbowtieCuda version 1.0.12
+  RbowtieCuda version 1.4.3
 
   - Fix for an issue with the Thrust library
 

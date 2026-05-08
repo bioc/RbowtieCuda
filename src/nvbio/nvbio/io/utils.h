@@ -181,8 +181,10 @@ struct ReadStream
     typedef ReadStream<StreamType,QualType>         this_type;
     typedef ReadStreamQualities<this_type>          qual_string_type;
 
-    #if __CUDACC_VER_MAJOR__ < 13
-    typedef random_access_universal_iterator_tag    iterator_category;
+    #if defined(THRUST_VERSION) && THRUST_VERSION < 200000
+    typedef random_access_universal_iterator_tag iterator_category;
+    #else
+    typedef thrust::random_access_device_iterator_tag iterator_category;
     #endif
     typedef value_type                              reference;
     typedef const value_type*                       pointer;
